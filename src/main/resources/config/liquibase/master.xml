@@ -5,6 +5,9 @@
     <!-- Entity Creation -->
     <include file="classpath:config/liquibase/changelog/202401270740_added_entity_AuditLog.xml" relativeToChangelogFile="false" />
     <include file="classpath:config/liquibase/changelog/202401272145_added_entity_PlatformUser.xml" relativeToChangelogFile="false" />
-    <include file="classpath:config/liquibase/changelog/202401301215_added_entity_Workspace.xml" relativeToChangelogFile="false" />
+    <include file="classpath:config/liquibase/changelog/202401300015_added_entity_Workspace.xml" relativeToChangelogFile="false" />
+
+    <!-- Relationships -->
+    <include file="classpath:config/liquibase/changelog/202401300037_added_entity_constraints_Workspace.xml" relativeToChangelogFile="false" />
 
 </databaseChangeLog>

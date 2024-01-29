@@ -30,4 +30,7 @@ public class Workspace {
     @NotBlank( message = "Global field is mandatory")
     private Boolean global;
 
+    @ManyToOne
+    @JoinColumn( name = "workspace_created_by_id", nullable = false)
+    private PlatformUser workspaceCreatedBy;
 }

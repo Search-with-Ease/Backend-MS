@@ -1,0 +1,22 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- Added Relationship Platform User (1 - n) Workspace -->
+    <changeSet id="20240130-02" author="patilrajat805">
+        <addColumn tableName="workspace">
+            <column name="workspace_created_by_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint
+                baseTableName="workspace"
+                baseColumnNames="workspace_created_by_id"
+                constraintName="fk_platform_user__workspace"
+                referencedTableName="platform_user"
+                referencedColumnNames="id" />
+    </changeSet>
+</databaseChangeLog>

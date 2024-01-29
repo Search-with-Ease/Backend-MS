@@ -1,10 +1,7 @@
 package com.rajatngc.searchwithease.domain;
 
 import com.rajatngc.searchwithease.util.constants.RegexConstants;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -13,6 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -44,4 +44,6 @@ public class PlatformUser {
 
     private Boolean phoneVerified;
 
+    @OneToMany( mappedBy = "workspaceCreatedBy")
+    private Set<Workspace> workspaces;
 }
