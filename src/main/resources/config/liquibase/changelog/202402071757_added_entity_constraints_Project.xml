@@ -1,0 +1,22 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- Added Relationship Workspace (1 - n) Project -->
+    <changeSet id="20240207-02" author="patilrajat805">
+        <addColumn tableName="project">
+            <column name="project_workspace_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint
+                baseTableName="project"
+                baseColumnNames="project_workspace_id"
+                constraintName="fk_project__workspace"
+                referencedTableName="workspace"
+                referencedColumnNames="id" />
+    </changeSet>
+</databaseChangeLog>

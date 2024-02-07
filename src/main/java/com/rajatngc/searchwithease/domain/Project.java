@@ -1,5 +1,6 @@
 package com.rajatngc.searchwithease.domain;
 
+import com.rajatngc.searchwithease.domain.enumeration.BuildingTool;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -8,15 +9,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Entity
-@Table( name = "workspace")
-public class Workspace {
+@Table( name = "project")
+public class Project {
 
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO)
@@ -28,14 +27,23 @@ public class Workspace {
 
     private String description;
 
+    @NotNull( message = "Group id is mandatory")
+    @NotBlank( message = "Group id is mandatory")
+    private String groupId;
+
+    @NotNull( message = "Artifact Id is mandatory")
+    @NotBlank( message = "Artifact Id is mandatory")
+    private String artifactId;
+
+    @NotNull( message = "Package Id is mandatory")
+    @NotBlank( message = "Package Id is mandatory")
+    private String packageId;
+
     @NotNull( message = "Global field is mandatory")
     @NotBlank( message = "Global field is mandatory")
-    private Boolean global;
+    private BuildingTool buildingTool;
 
     @ManyToOne
-    @JoinColumn( name = "workspace_created_by_id", nullable = false)
-    private PlatformUser workspaceCreatedBy;
-
-    @OneToMany( mappedBy = "workspace")
-    private Set<Project> projects;
+    @JoinColumn(name = "project_workspace_id", nullable = false)
+    private Workspace workspace;
 }
