@@ -16,18 +16,23 @@
             <column name="description" type="char">
                 <constraints nullable="true" />
             </column>
-            <column name="groupId" type="varchar(255)">
+            <column name="group_id" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="artifactId" type="varchar(255)">
+            <column name="artifact_id" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="packageId" type="varchar(255)">
+            <column name="package_id" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="buildingTool" type="varchar(255)">
+            <column name="building_tool" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="20240227" author="rajat.patil02">
+        <createSequence incrementBy="1" sequenceName="seq_project_id" startValue="1"/>
+    </changeSet>
+
 </databaseChangeLog>

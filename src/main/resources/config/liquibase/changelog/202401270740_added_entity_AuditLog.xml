@@ -16,16 +16,16 @@
             <column name="userId" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="associateType" type="varchar(255)">
+            <column name="associate_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="associateId" type="bigint">
+            <column name="associate_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="actionType" type="varchar(255)">
+            <column name="action_type" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="loggedOn" type="datetime">
+            <column name="logged_on" type="datetime">
                 <constraints nullable="false" />
             </column>
         </createTable>

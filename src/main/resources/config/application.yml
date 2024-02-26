@@ -1,5 +1,8 @@
 server.port: 9000
 
+logging.level.com.rajatngc.searchwithease: TRACE
+logging.level.org.hibernate: ERROR
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/swe_db
